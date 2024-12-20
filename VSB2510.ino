@@ -7,8 +7,7 @@
 byte data;
 
 void setup() {
- // Wire.setClock(400000);
-  Wire.begin(9);                // join i2c bus with address #4
+  Wire.begin(10); // join i2c bus with address #4
   Wire.setClock(400000);
   Wire.onReceive(BlinkLED); // register event
   for (int i = 1; i <= 22; i++){
@@ -16,7 +15,6 @@ void setup() {
     digitalWrite(num_pin, LOW);
   }
 }
-
 
 byte I2C_OnOff;                                 
 
@@ -35,8 +33,6 @@ void BlinkLED(int Press)
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
   if (Wire.available()==4){
     int relay_number = 0;
     for (int i = 0; i <= 4; i++){
